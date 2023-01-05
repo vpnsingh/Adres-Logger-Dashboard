@@ -27,7 +27,7 @@ const Pagination = (props: PaginationProps) => {
                 </li>
                 {pageNumbers.map(pgNumber => (
                     <li key={pgNumber} 
-                        className= {`page-item ${currentPage == pgNumber ? 'active' : ''} `} >
+                        className= {`page-item ${currentPage === pgNumber ? 'active' : ''} `} >
                         <button onClick={() => setCurrentPage(pgNumber)} className='page-link' >
                             {pgNumber}
                         </button>

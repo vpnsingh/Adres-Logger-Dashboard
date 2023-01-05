@@ -53,19 +53,19 @@ const Dashboard = () => {
         let newfilteredLogger = tempfilteredLogger.filter((logger:any) => {
           // validates all filter criteria
           return Object.entries(params).every(([filter, value] : any) => {
-            if(filter == 'logId'){
+            if(filter === 'logId'){
                 return String(logger[filter]).includes(value)
             }
-            if(filter == 'actionType'){
+            if(filter === 'actionType'){
                 return String(logger[filter]) === String(value)
             }
-            if(filter == 'applicationType'){
+            if(filter === 'applicationType'){
                 return String(logger[filter]) === String(value)
             }
-            if(filter == 'applicationId'){
+            if(filter === 'applicationId'){
                 return Number(logger[filter]) === Number(value)
             }
-            if(filter == 'fromDate') {
+            if(filter === 'fromDate') {
                 return isAfter(parseISO(logger['creationTimestamp']), new Date(value)) ||
                      isEqual(parseISO(logger['creationTimestamp']), new Date(value))  
             }

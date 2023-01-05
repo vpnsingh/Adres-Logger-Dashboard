@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { createSearchParams, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import { actionTypeData, applicationTypeData } from '../core/masterdata';
 
 const FormInputs = () => {
@@ -37,7 +37,7 @@ const FormInputs = () => {
     const filterData = (e:any) => {
         e.preventDefault()
         console.log(filterInput)
-        let notEmptyFieldsObj = Object.fromEntries(Object.entries(filterInput).filter(([_, v]) => v != ''));
+        let notEmptyFieldsObj = Object.fromEntries(Object.entries(filterInput).filter(([_, v]) => v !== ''));
         const options = {
             pathname: '/home',
             search: `?${createSearchParams(notEmptyFieldsObj)}`,
