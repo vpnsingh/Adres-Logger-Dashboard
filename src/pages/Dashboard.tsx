@@ -25,7 +25,10 @@ const Dashboard = () => {
 
     useEffect(() => {
         fetchData()
-        setTimeout(() => {checkForURLParams()}, 2000)
+        setTimeout(() => {
+            checkForURLParams()
+        }, 2000)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // for url change detection
@@ -69,7 +72,7 @@ const Dashboard = () => {
                 return isAfter(parseISO(logger['creationTimestamp']), new Date(value)) ||
                      isEqual(parseISO(logger['creationTimestamp']), new Date(value))  
             }
-            if(filter == 'toDate') {
+            if(filter === 'toDate') {
                 return isBefore(parseISO(logger['creationTimestamp']), new Date(value)) ||
                     isEqual(parseISO(logger['creationTimestamp']), new Date(value))
             }
