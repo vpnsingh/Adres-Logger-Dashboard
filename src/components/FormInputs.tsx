@@ -31,7 +31,7 @@ const FormInputs = () => {
         fromDate: '',
         toDate: '',
         applicationId: ''
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
 
     // on search logger button calling api
     const filterData = (e:any) => {

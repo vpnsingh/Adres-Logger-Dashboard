@@ -76,6 +76,7 @@ const Dashboard = () => {
                 return isBefore(parseISO(logger['creationTimestamp']), new Date(value)) ||
                     isEqual(parseISO(logger['creationTimestamp']), new Date(value))
             }
+            return false
           });
         });
         setLogData(newfilteredLogger)
