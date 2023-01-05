@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.inputs-filters {
+  border: 1px solid #CAD5E2;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+.inputs-filters Form .form-label{
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+.logger-table{
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
