@@ -31,7 +31,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Deployment
 
-**Live URL :** `https://63b6c20f8199290060fdd3a6--regal-florentine-c03e91.netlify.app/`
+**Live URL :** [https://63b6c20f8199290060fdd3a6--regal-florentine-c03e91.netlify.app/][https://63b6c20f8199290060fdd3a6--regal-florentine-c03e91.netlify.app/]
 
 ### `npm run eject`
 
