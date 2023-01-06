@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -36,7 +36,6 @@ const FormInputs = () => {
     // on search logger button calling api
     const filterData = (e:any) => {
         e.preventDefault()
-        console.log(filterInput)
         let notEmptyFieldsObj = Object.fromEntries(Object.entries(filterInput).filter(([_, v]) => v !== ''));
         const options = {
             pathname: '/home',

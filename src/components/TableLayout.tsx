@@ -1,11 +1,10 @@
-import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { LoggerDataType } from '../types';
 import { tableColumns } from '../core/masterdata';
 
 interface DataTableProps {
     loggerData?: LoggerDataType[],
-    sortData: (columnName: string, order: string, inputType: string) => void;
+    sortData?: (columnName: string, order: string, inputType: string) => void;
 }
 
 const TableLayout = ({ loggerData = [], sortData }: DataTableProps) => {
@@ -20,7 +19,8 @@ const TableLayout = ({ loggerData = [], sortData }: DataTableProps) => {
                             return <th key={column.key}>
                                 <span>{column.label}</span>
                                 <i className="fa fa-sort ps-2" 
-                                    onClick={() => {column.sort==='asc' ? column.sort='desc' : column.sort='asc';sortData(column.key, column.sort, column.intype)}}>
+                                    onClick={() => {column.sort==='asc' ? column.sort='desc' : column.sort='asc';
+                                                    if(sortData) sortData(column.key, column.sort, column.intype)}}>
                                 </i>
                             </th>
                         })

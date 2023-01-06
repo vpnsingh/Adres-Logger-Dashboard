@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { getLoggerData } from '../apis/requests'
 import TableLayout from '../components/TableLayout'
 import Pagination from '../components/Pagination';
@@ -66,7 +66,7 @@ const Dashboard = () => {
                 return String(logger[filter]) === String(value)
             }
             if(filter === 'applicationId'){
-                return Number(logger[filter]) === Number(value)
+                return String(logger[filter]).includes(value)
             }
             if(filter === 'fromDate') {
                 return isAfter(parseISO(logger['creationTimestamp']), new Date(value)) ||
@@ -88,7 +88,15 @@ const Dashboard = () => {
             if(inputType === 'number'){
                 return order === 'asc' ? prev[columnName] - next[columnName] : next[columnName] - prev[columnName]
             }else if(inputType === 'string'){
-                return order === 'asc' ? prev[columnName] < next[columnName] ? -1 : 1 : prev[columnName] > next[columnName] ? -1 : 1
+                if(order === 'asc'){
+                    if(prev[columnName] === null) return 1
+                    if(next[columnName] === null) return -1
+                    return prev[columnName] < next[columnName] ? -1 : 1
+                }else{
+                    if(prev[columnName] === null) return 1
+                    if(next[columnName] === null) return -1
+                    return prev[columnName] > next[columnName] ? -1 : 1
+                }
             }else{
                 let dateA : any = new Date(prev[columnName])
                 let dateB : any = new Date(next[columnName])
@@ -99,10 +107,20 @@ const Dashboard = () => {
     }
 
     // setting pagination records data
-    const indexOfLastRecord = currentPage * recordsPerPage;
-    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
-    const currentRecords = logData.slice(indexOfFirstRecord, indexOfLastRecord);
-    const nPages = Math.ceil(logData.length / recordsPerPage)
+    let indexOfLastRecord = currentPage * recordsPerPage;
+    let indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    let currentRecords = logData.slice(indexOfFirstRecord, indexOfLastRecord);
+    let nPages = Math.ceil(logData.length / recordsPerPage)
+
+    useEffect(() => {
+        if(logData.length > 0){
+            nPages = Math.ceil(logData.length / recordsPerPage)
+            if(currentPage > nPages) setCurrentPage(nPages)
+            indexOfLastRecord = currentPage * recordsPerPage;
+            indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+            currentRecords = logData.slice(indexOfFirstRecord, indexOfLastRecord);
+        }
+    }, [logData])
 
     return (
         <div className='container-fluid'>

@@ -17,7 +17,7 @@ export const applicationTypeData = [
 ]
 
 export const tableColumns = [
-    { key: 'logId', label: 'LogID', sort: 'asc', intype: 'number' },
+    { key: 'logId', label: 'Log ID', sort: 'asc', intype: 'number' },
     { key: 'applicationType', label: 'Application Type', sort: 'asc', intype: 'string' },
     { key: 'applicationId', label: 'Application ID', sort: 'asc', intype: 'number' },
     { key: 'actionType', label: 'Action', sort: 'asc', intype: 'string' },
