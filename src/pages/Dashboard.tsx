@@ -120,7 +120,6 @@ const Dashboard = () => {
             indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
             currentRecords = logData.slice(indexOfFirstRecord, indexOfLastRecord);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [logData])
 
     return (
