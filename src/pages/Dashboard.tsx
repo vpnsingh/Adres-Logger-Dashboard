@@ -89,7 +89,7 @@ const Dashboard = () => {
                 return order === 'asc' ? prev[columnName] - next[columnName] : next[columnName] - prev[columnName]
             }else if(inputType === 'string'){
                 if(order === 'asc'){
-                    if(prev[columnName] === null) return 1
+                    if(prev[columnName] === null) return -1
                     if(next[columnName] === null) return -1
                     return prev[columnName] < next[columnName] ? -1 : 1
                 }else{
